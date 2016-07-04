@@ -17,5 +17,7 @@ url: "http://yourdomain.com" # the base hostname & protocol for your site
 twitter_username: wuftmergufty
 github_username:  wuftymerguftyguff
 
+encoding: utf-8
+
 # Build settings
 markdown: kramdown
