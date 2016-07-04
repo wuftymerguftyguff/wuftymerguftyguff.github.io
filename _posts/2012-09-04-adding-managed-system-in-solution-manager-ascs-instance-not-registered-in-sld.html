@@ -1,0 +1,29 @@
+---
+layout: post
+status: publish
+published: true
+title: Adding Managed System in solution manager ascs instance not registered in SLD
+author:
+  display_name: jeffa
+  login: jeffa
+  email: wuftymerguftyguff@gmail.com
+  url: ''
+author_login: jeffa
+author_email: wuftymerguftyguff@gmail.com
+wordpress_id: 225
+wordpress_url: http://jeffarthur.co.uk/?p=225
+date: '2012-09-04 12:40:40 +0100'
+date_gmt: '2012-09-04 12:40:40 +0100'
+categories:
+- SAP
+tags: []
+comments: []
+---
+<div class="test-default-content">
+<p>With separate scs instances the scs instance does not get registered in the sld by default (in all versions)</p>
+<p>Sapstartsrv will register the details for the scs instance (and any other instances that it knows about) if an slddest.cfg file exists in the instance GLOBAL directory.</p>
+<p>You can create this file as sidadm by running this command from the GLOBAL dir</p>
+<p>sldreg -configure slddest.cfg &acirc;&euro;&ldquo;usekeyfile</p>
+<p>sapstartsrv will only do this on a HARD restart, which means you have to shut the system down and restart sapstartsrv (not just do a startsap; stopsap)</p>
+<p>Without this step you can&acirc;&euro;&trade;t do a managed system config in solman (properly) as the system will fail the pre requisites check.</p>
+<p><&#47;div></p>

@@ -1,0 +1,27 @@
+---
+layout: post
+status: publish
+published: true
+title: default catch all mod_rewrite rule for sedo parking
+author:
+  display_name: jeffa
+  login: jeffa
+  email: wuftymerguftyguff@gmail.com
+  url: ''
+author_login: jeffa
+author_email: wuftymerguftyguff@gmail.com
+wordpress_id: 7
+wordpress_url: http://jeffarthur.co.uk/2007/04/04/default-catch-all-mod_rewrite-rule-for-sedo-parking/
+date: '2007-04-04 16:21:09 +0100'
+date_gmt: '2007-04-04 15:21:09 +0100'
+categories:
+- Internet
+tags: []
+comments: []
+---
+<p>I just realised that I now have a rather silly list of domain names registered that I am doing exactly nothing with.  These include such little gems as wheresmychair.co.uk and the ever popular randomweatherforecast.com.   As I am sure you can image I just can\'t afford to have domains of this quality standing idle.  I tend to forget to set up hosting for these silly domains when I register them.  Anyway, I finally got around to signing up with sedo parking, but couldn\'t be arsed to set up all the redirects.  My web server is set to deliver default content if it does not have anything set up for the specific domain, so I added the following .htaccess file to send any requests straight over to sedo.</p>
+<p><code>RewriteEngine on<br />
+Rewritebase &#47;<br />
+RewriteRule .* http:&#47;&#47;www.sedoparking.com&#47;%{HTTP_HOST} [R]<&#47;code></p>
+<p>So now all I have to remember to do is add any new silly domains to sedo</p>
+<p>It seems to work ok so far, so I\'ll get my resignation letter ready as I am sure I will be retiring within a few weeks.</p>

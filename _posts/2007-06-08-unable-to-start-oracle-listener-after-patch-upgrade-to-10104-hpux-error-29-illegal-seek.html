@@ -1,0 +1,62 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Unable to start Oracle listener after patch upgrade to 10.1.0.4  (HPUX Error:
+  29: Illegal seek)'
+author:
+  display_name: jeffa
+  login: jeffa
+  email: wuftymerguftyguff@gmail.com
+  url: ''
+author_login: jeffa
+author_email: wuftymerguftyguff@gmail.com
+wordpress_id: 11
+wordpress_url: http://jeffarthur.co.uk/2007/06/08/unable-to-start-oracle-listener-after-patch-upgrade-to-10104-hpux-error-29-illegal-seek/
+date: '2007-06-08 16:09:52 +0100'
+date_gmt: '2007-06-08 15:09:52 +0100'
+categories:
+- SAP
+- Oracle
+- Database
+tags: []
+comments: []
+---
+<p>The patch install went fine, and Oracle came up without any problems, but the listener just would not start with the following errors.</p>
+<p>lsnrctl start</p>
+<p>LSNRCTL for HPUX: Version 10.1.0.4.0 - Production on 08-JUN-2007 15:49:19</p>
+<p>Copyright (c) 1991, 2004, Oracle.&Atilde;&sbquo;&Acirc;&nbsp; All rights reserved.</p>
+<p>Starting &#47;oracle&#47;SP1&#47;101_64&#47;bin&#47;tnslsnr: please wait...</p>
+<p>TNS-12537: TNS:connection closed<br />
+&Atilde;&sbquo;&Acirc;&nbsp;TNS-12560: TNS:protocol adapter error<br />
+&Atilde;&sbquo;&Acirc;&nbsp; TNS-00507: Connection closed<br />
+&Atilde;&sbquo;&Acirc;&nbsp;&Atilde;&sbquo;&Acirc;&nbsp; HPUX Error: 29: Illegal seek</p>
+<p>I found a couple of potential fixes.</p>
+<p>Verified the &#47;etc&#47;hosts contains the localhost entry:</p>
+<p><font size=\"2\" face=\"r_ansi\">127.0.0.1 localhost.localdomain localhost<br />
+<&#47;font></p>
+<p><font size=\"2\" face=\"r_ansi\">The above did not work for me, but has for others.<&#47;font></p>
+<p><font size=\"2\" face=\"r_ansi\">What did work for me is below:<&#47;font></p>
+<p><font size=\"2\" face=\"r_ansi\"></p>
+<h2 class=\"awiz\"><a name=\"CAUSE\"><&#47;a>Cause<&#47;h2><br />
+TNS Listener&Atilde;&sbquo;&Acirc;&nbsp;fails while attempting to initiate subscription to ONS node down event.</p>
+<p>Level 16 TNS Listener trace shows the last action:</p>
+<p>...<br />
+[01-JUL-2005 10:16:59:727] nsglonsinit: Initiated subscription for node down event<br />
+...</p>
+<p>Same symptoms and corrective action found in Bug 4227455 OCS_MAIN_SOLARIS_050304 - UNABLE TO<br />
+START THE SECOND LISTENER</p>
+<h2 class=\"awiz\"><a name=\"FIX\"><&#47;a>Solution<&#47;h2><br />
+To implement the solution, please execute the following steps:</p>
+<p>1. Explicitly disable the 10g TNS Listener\'s subscrition to ONS by editing the listener.ora file and add the parameter below:</p>
+<p>SUBSCRIBE_FOR_NODE_DOWN_EVENT_
+<listener_name>=OFF</p>
+<p>&Atilde;&sbquo;&Acirc;&nbsp;&Atilde;&sbquo;&Acirc;&nbsp;&Atilde;&sbquo;&Acirc;&nbsp;&Atilde;&sbquo;&Acirc;&nbsp;&Atilde;&sbquo;&Acirc;&nbsp;&Atilde;&sbquo;&Acirc;&nbsp; where
+<listener_name> would be replaced with the actual listener name configured in the listener.ora file.</p>
+<p>For example, if the listener name is LISTENER (default), the parameter would be:</p>
+<p>SUBSCRIBE_FOR_NODE_DOWN_EVENT_LISTENER=OFF</p>
+<p>&Atilde;&sbquo;&Acirc;&nbsp;&Atilde;&sbquo;&Acirc;&nbsp;&Atilde;&sbquo;&Acirc;&nbsp;&Atilde;&sbquo;&Acirc;&nbsp;&Atilde;&sbquo;&Acirc;&nbsp;&Atilde;&sbquo;&Acirc;&nbsp; - Save the listener.ora file</p>
+<p>2. Start the TNS Listener from a new LSNRCTL prompt:</p>
+<p>lsnrctl <return></p>
+<p>LSNRCTL> start</p>
+<p><&#47;font></p>

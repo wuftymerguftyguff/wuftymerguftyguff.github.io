@@ -1,0 +1,37 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Symptom: Raspberry Pi DHCP ethernet network problem with BT Homehub'
+author:
+  display_name: jeffa
+  login: jeffa
+  email: wuftymerguftyguff@gmail.com
+  url: ''
+author_login: jeffa
+author_email: wuftymerguftyguff@gmail.com
+wordpress_id: 261
+wordpress_url: http://jeffarthur.co.uk/?p=261
+date: '2014-01-23 22:55:55 +0000'
+date_gmt: '2014-01-23 22:55:55 +0000'
+categories:
+- Raspberry PI
+tags: []
+comments: []
+---
+<div class="test-default-content">I just can't get my PI to get a DHCP lease from my BT homehub (3)</p>
+<p>I have tried multiple distros, firmware updates, checked voltages, multiple PSUs. SD cards</p>
+<p>This thing was driving me INSANE as this PI has been working for me for months with openelec and no problems at all.</p>
+<p>When i downed and upped the interface i could just see the PI getting NAKs from the DHCP server which made no sense at all.</p>
+<p>In the end I swapped out the BT Homehub for a Draytek router I had laying around and BAM the PI got a lease first time. ( I was glad as the only other thing I had left to swap was my house!! )</p>
+<p>I can re create this problem 100% by just swapping the router out and downing and upping the interface again. ( if anyone wants me to capture some traffic I am happy to do so! )</p>
+<p>The forum seems full of folks having many odd networking problems so i thought I would share as I dare say there are a LOAD of folks in the UK with BT Homehubs that may have this issue.</p>
+<p>So after I came up with my router swap workaround I started Googling in a bit more targeted way.</p>
+<p>There seems to be lots of noise about BT homehubs having a hard local LAN device limit of 10 devices, so that is food for thought.</p>
+<p>I also found this post:<br />
+<a href="http:&#47;&#47;www.bentasker.co.uk&#47;documentation&#47;linux&#47;257-usurping-the-bthomehub-with-a-raspberry-pi-part-two-dns-and-dhcp">http:&#47;&#47;www.bentasker.co.uk&#47;documentatio ... s-and-dhcp<&#47;a><br />
+Which talks about BT Homehubs sending out DHCP NAK packets even when DHCP is disabled!!</p>
+<p>There are also plenty of posts in the BT communities site talking about DHCP being broken on BT Homehubs.</p>
+<p>I know that a good few folks are struggling with network issues, so I post this as just one more thing to try.</p>
+<p>ta</p>
+<p>Jeff<&#47;div></p>

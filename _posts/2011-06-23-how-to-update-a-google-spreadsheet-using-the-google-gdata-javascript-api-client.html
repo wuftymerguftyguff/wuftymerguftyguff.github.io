@@ -1,0 +1,41 @@
+---
+layout: post
+status: publish
+published: true
+title: 'How to update a google spreadsheet using the Google gdata Javascript API client '
+author:
+  display_name: jeffa
+  login: jeffa
+  email: wuftymerguftyguff@gmail.com
+  url: ''
+author_login: jeffa
+author_email: wuftymerguftyguff@gmail.com
+wordpress_id: 120
+wordpress_url: http://jeffarthur.co.uk/?p=120
+date: '2011-06-23 20:57:51 +0100'
+date_gmt: '2011-06-23 20:57:51 +0100'
+categories:
+- Internet
+tags: []
+comments: []
+---
+<p>Well this has been a journey.</p>
+<p>All I wanted to do was to append a row to the bottom of a Google Docs Spreadsheet using Javascript.</p>
+<p>I have looked all over for help with this but just keep drawing a blank.&Acirc;&nbsp; Anyway it is either so easy that no one else could be bothered to write it down, or I am terminally dumb.&Acirc;&nbsp; Either way I decided to share what I worked out.</p>
+<p>I have set up a demo page <a href="https:&#47;&#47;jeffarthur.co.uk&#47;GoogleSpreadsheet-JSInsertExample.html" target="_blank">here<&#47;a>. &Acirc;&nbsp;(sorry about the ssl nag...)</p>
+<p>Work your way along the buttons from left to right.&Acirc;&nbsp; As you go you will:</p>
+<ul>
+<li>Log in into your Google docs account<&#47;li>
+<li>Check to make sure you are logged in,&Acirc;&nbsp; This should display your login token.<&#47;li>
+<li>Debug your login, this should show you that you are logged into two scopes (one for docs, one for spreadsheets)<&#47;li>
+<li>Create a Spreadsheet in your google docs account.<&#47;li>
+<li>Look up that sheet (to get its unique ID) (this also adds a heading to the top of the first column)<&#47;li>
+<li>Append a row to your sheet.&Acirc;&nbsp; (you should see the time being added to the first column each time you click the button)<&#47;li>
+<li>Logout to revoke the access from my webpage to your google docs account.<&#47;li><br />
+<&#47;ul><br />
+Just view the page source to see how it was (badly) done.</p>
+<p>I am not claiming that this code is good, or even useful, but it does at least prove that you can insert into a Google spreadsheet with Javascript.</p>
+<p>I offer no warranty, if this webpage crashes your dog or eats your car,&Acirc;&nbsp; don't blame me.</p>
+<p>If anyone is bothered and&#47;or interested I will go thru the code line by line with some real explanations.&Acirc;&nbsp; Leave a comment if you want me to put the time and effort in.</p>
+<p>Update 10&#47;01&#47;2011. &Acirc;&nbsp;Fixed this as Google now require https for all Doc API calls. &Acirc;&nbsp;Makes sense really. &Acirc;&nbsp;Because of the requirement for ssl I have updated the link ftom this post to use SSL to avoid the mixed secure and insecure content issues.</p>
+<p>&nbsp;</p>

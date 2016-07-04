@@ -1,0 +1,35 @@
+---
+layout: post
+status: publish
+published: true
+title: SAP Kernel upgrade on AIX - Cannot open or remove a file containing a running
+  program.
+author:
+  display_name: jeffa
+  login: jeffa
+  email: wuftymerguftyguff@gmail.com
+  url: ''
+author_login: jeffa
+author_email: wuftymerguftyguff@gmail.com
+wordpress_id: 165
+wordpress_url: http://jeffarthur.co.uk/?p=165
+date: '2012-07-06 10:05:14 +0100'
+date_gmt: '2012-07-06 10:05:14 +0100'
+categories:
+- SAP
+- AIX
+tags: []
+comments: []
+---
+<div class="test-default-content">
+<ul>
+<li id="discussion-8150522">
+<div id="thread-message-8150522">
+<div id="8150522">
+<section>When a shared library with read-other permission is loaded, it remains loaded (and available) even if no processes are currently using it. This allows faster execution, but may result in a message like "Cannot open or remove a file containing a running program" on installs or rebuilds of application libraries.<&#47;section>The slibclean command unloads all object files with load and use counts of 0. It can also be used to remove object files that are no longer used<br />
+from both the shared library region and in the shared library and kernel text regions by removing object files that are no longer required.</p>
+<p>&nbsp;</p>
+<section>&Acirc;&nbsp;<&#47;section><&#47;div><br />
+<&#47;div><&#47;li><br />
+<&#47;ul><br />
+<&#47;div></p>

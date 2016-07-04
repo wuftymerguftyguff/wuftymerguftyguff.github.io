@@ -1,0 +1,30 @@
+---
+layout: post
+status: publish
+published: true
+title: SAP Solution Manager BI&#47;BW reporting stops working after an ST Plugin update
+author:
+  display_name: jeffa
+  login: jeffa
+  email: wuftymerguftyguff@gmail.com
+  url: ''
+author_login: jeffa
+author_email: wuftymerguftyguff@gmail.com
+wordpress_id: 244
+wordpress_url: http://jeffarthur.co.uk/?p=244
+date: '2012-10-18 14:31:56 +0100'
+date_gmt: '2012-10-18 14:31:56 +0100'
+categories:
+- Uncategorized
+- SAP
+tags: []
+comments: []
+---
+<div class="test-default-content">Sometimes after a ST plugin gets imported you may start getting lots of BRAIN 299 error messages in SM21, Issues&Acirc;&nbsp;accessing&Acirc;&nbsp;BI &Acirc;&nbsp;CPH data in ST03 and BI content in E2E diagnostics. (<a>Error loading template 0TPL_0SMD_MPEH_HA_Q0010 etc)<&#47;a><&#47;div></p>
+<div class="test-default-content"><&#47;div></p>
+<div class="test-default-content">This can be because there are discrepancies between the active and delivered version of some of the BI content.<&#47;div></p>
+<div class="test-default-content"><&#47;div></p>
+<div class="test-default-content">I have found that running the program CCMSBI_SETUP_E2E and the transaction&Acirc;&nbsp;RSTCC_INST_BIAC in the system hosting the BI for your solman&Acirc;&nbsp;will&Acirc;&nbsp;regenerate the content and fix may of these ills.<&#47;div></p>
+<div class="test-default-content"><&#47;div></p>
+<div class="test-default-content">However, YMMV, so let me know how you get on.<&#47;div></p>
+<div class="test-default-content"><&#47;div></p>

@@ -1,0 +1,30 @@
+---
+layout: post
+status: publish
+published: true
+title: Investigating qRFC problems in SAP
+author:
+  display_name: jeffa
+  login: jeffa
+  email: wuftymerguftyguff@gmail.com
+  url: ''
+author_login: jeffa
+author_email: wuftymerguftyguff@gmail.com
+wordpress_id: 258
+wordpress_url: http://jeffarthur.co.uk/?p=258
+date: '2013-09-11 11:04:07 +0100'
+date_gmt: '2013-09-11 11:04:07 +0100'
+categories:
+- PC Support
+tags: []
+comments: []
+---
+<p>SMQ1 for outbound</p>
+<p>SMQ2 for inbound</p>
+<p>SMQR for the inbound scheduler</p>
+<p>It is possible to automatically reset the QRFC queues if safe in your installation.</p>
+<p>You need to run RSQIWKEX periodically and also make sure that</p>
+<p>MONITOR QRFC_RESTART_ALLOWED is set to 1 in sxmb_adm -> integration engine configuration</p>
+<p>For entries with SMQ1 you need to use report RSQOWKEX</p>
+<p>For entries with SM58&Acirc;&nbsp; (tRFC)use RSARFCEX</p>
+<p>&nbsp;</p>

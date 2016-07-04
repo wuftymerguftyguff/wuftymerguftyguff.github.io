@@ -1,0 +1,101 @@
+---
+layout: post
+status: publish
+published: true
+title: How to setup for AIX 7.1 to authenticate against Windows active directory
+author:
+  display_name: jeffa
+  login: jeffa
+  email: wuftymerguftyguff@gmail.com
+  url: ''
+author_login: jeffa
+author_email: wuftymerguftyguff@gmail.com
+wordpress_id: 192
+wordpress_url: http://jeffarthur.co.uk/?p=192
+date: '2012-08-23 12:55:47 +0100'
+date_gmt: '2012-08-23 12:55:47 +0100'
+categories:
+- AIX
+tags: []
+comments: []
+---
+<div class="test-default-content">
+<h1>Setup for AIX 7.1 to authenticate against active directory.<&#47;h1></p>
+<h2>Make sure correct file sets are installed:<&#47;h2><br />
+tstsvaap004:&#47;>lslpp -l | grep krb</p>
+<p>krb5.client.rte&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp; 1.5.0.2&Acirc;&nbsp; COMMITTED&Acirc;&nbsp; Network Authentication Service</p>
+<p>krb5.client.samples&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp; 1.5.0.2 &Acirc;&nbsp;COMMITTED&Acirc;&nbsp; Network Authentication Service</p>
+<p>krb5.doc.en_US.html&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp; 1.5.0.2&Acirc;&nbsp; COMMITTED&Acirc;&nbsp; Network Auth Service HTML</p>
+<p>krb5.doc.en_US.pdf&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp; 1.5.0.2&Acirc;&nbsp; COMMITTED&Acirc;&nbsp; Network Auth Service PDF</p>
+<p>krb5.lic&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp; 1.5.0.2&Acirc;&nbsp; COMMITTED&Acirc;&nbsp; Network Authentication Service</p>
+<p>krb5.msg.en_US.client.rte&Acirc;&nbsp; 1.5.0.2&Acirc;&nbsp; COMMITTED&Acirc;&nbsp; Network Auth Service Client</p>
+<p>krb5.client.rte&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp;&Acirc;&nbsp; 1.5.0.2&Acirc;&nbsp; COMMITTED&Acirc;&nbsp; Network Authentication Service</p>
+<p>&nbsp;</p>
+<h2>Generate default kerberos configuration.<&#47;h2><br />
+&nbsp;</p>
+<p>tstsvaap004:&#47;>mkkrb5clnt -c tstdc1.example.co.uk -r EXAMPLE.CO.UK -s tstdc1.example.co.uk -d example.co.uk -D -i files -K</p>
+<p>Initializing configuration...</p>
+<p>Creating &#47;etc&#47;krb5&#47;krb5_cfg_type</p>
+<p>Creating &#47;etc&#47;krb5&#47;krb5.conf</p>
+<p>The command mkkrb5clnt completed successfully.</p>
+<p>&nbsp;</p>
+<h2>Adapt the default &#47;etc&#47;krb5&#47;krb5.conf<&#47;h2><br />
+Replace&#47;Update the content of &#47;etc&#47;krb5&#47;krb5.conf with the following content</p>
+<p>[libdefaults]</p>
+<p>default_realm = EXAMPLE.CO.UK</p>
+<p>default_keytab_name = FILE:&#47;etc&#47;krb5&#47;krb5.keytab</p>
+<p>default_tkt_enctypes = des3-cbc-sha1 arcfour-hmac aes256-cts des-cbc-md5 des-cbc-crc aes128-cts</p>
+<p>default_tgs_enctypes = des3-cbc-sha1 arcfour-hmac aes256-cts des-cbc-md5 des-cbc-crc aes128-cts</p>
+<p>&nbsp;</p>
+<p>[realms]</p>
+<p>EXAMPLE.CO.UK = {</p>
+<p>kdc = tstdc1.example.co.uk:88</p>
+<p>kdc = tstdc2.example.co.uk:88</p>
+<p>kdc = tstdc3.example.co.uk:88</p>
+<p>kdc = tstdc4.example.co.uk:88</p>
+<p>admin_server = tstdc1.example.co.uk:749</p>
+<p>default_domain = example.co.uk</p>
+<p>}</p>
+<p>&nbsp;</p>
+<p>[domain_realm]</p>
+<p>.example.co.uk = EXAMPLE.CO.UK</p>
+<p>tstdc1.example.co.uk = EXAMPLE.CO.UK</p>
+<p>&nbsp;</p>
+<p>[logging]</p>
+<p>kdc = FILE:&#47;var&#47;krb5&#47;log&#47;krb5kdc.log</p>
+<p>admin_server = FILE:&#47;var&#47;krb5&#47;log&#47;kadmin.log</p>
+<p>kadmin_local = FILE:&#47;var&#47;krb5&#47;log&#47;kadmin_local.log</p>
+<p>default = FILE:&#47;var&#47;krb5&#47;log&#47;krb5lib.log</p>
+<p>&nbsp;</p>
+<h2>Adapt the default &#47;etc&#47;methods.cfg<&#47;h2><br />
+&nbsp;</p>
+<p>Update the contents of &#47;etc&#47;methods.cfg&Acirc;&nbsp; to include:</p>
+<p>KRB5:</p>
+<p>program = &#47;usr&#47;lib&#47;security&#47;KRB5</p>
+<p>program_64 = &#47;usr&#47;lib&#47;security&#47;KRB5_64</p>
+<p>options = authonly,kadmind=no</p>
+<p>&nbsp;</p>
+<p>KRB5files:</p>
+<p>options = db=BUILTIN,auth=KRB5</p>
+<p>&nbsp;</p>
+<h2>Check the current authentication providers<&#47;h2><br />
+&nbsp;</p>
+<p>tstsvaap004:&#47;etc>lsauthent</p>
+<p>Standard Aix</p>
+<p>&nbsp;</p>
+<h2>Add in Kerberos Support<&#47;h2><br />
+&nbsp;</p>
+<p>tstsvaap004:&#47;etc>chauthent -k5 -std</p>
+<p>tstsvaap004:&#47;etc>lsauthent</p>
+<p>Kerberos 5</p>
+<p>Standard Aix</p>
+<p><br clear="all" &#47;>&nbsp;</p>
+<p>&nbsp;</p>
+<h2>Update current user accounts to used Kerberos Auths<&#47;h2><br />
+&nbsp;</p>
+<p>e.g. chuser registry=KRB5files SYSTEM=KRB5files existusr</p>
+<p>&nbsp;</p>
+<h2>Set up a new unix user to use Kerberos Auths<&#47;h2><br />
+&nbsp;</p>
+<p>e.g. mkuser registry=KRB5files SYSTEM=KRB5files newusr</p>
+<p><&#47;div></p>

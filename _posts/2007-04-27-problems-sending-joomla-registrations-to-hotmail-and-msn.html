@@ -1,0 +1,49 @@
+---
+layout: post
+status: publish
+published: true
+title: Problems sending joomla registrations to hotmail and msn.
+author:
+  display_name: jeffa
+  login: jeffa
+  email: wuftymerguftyguff@gmail.com
+  url: ''
+author_login: jeffa
+author_email: wuftymerguftyguff@gmail.com
+wordpress_id: 10
+wordpress_url: http://jeffarthur.co.uk/2007/04/27/problems-sending-joomla-registrations-to-hotmail-and-msn/
+date: '2007-04-27 00:27:46 +0100'
+date_gmt: '2007-04-26 23:27:46 +0100'
+categories:
+- Internet
+- Joomla
+tags: []
+comments: []
+---
+<p>I have been fighting against this for a couple of days now, and have fianlly solved it.  I make no claims that this is a defiantive solution, but it worked for me.</p>
+<p>I think part of what made things difficult was that there are regularly two problems here.</p>
+<p><strong> Problem 1<&#47;strong></p>
+<p>Microsoft  are pretty tight on their anti spam controls.  You need to make sure you have correctly configured SPF records the domain you are sending from.</p>
+<p>Microsoft provide a wizard to help you to create a valid SPF record <a href=\"http:&#47;&#47;www.microsoft.com&#47;mscorp&#47;safety&#47;content&#47;technologies&#47;senderid&#47;wizard&#47;\">here<&#47;a>.   It will also verify an existing SPF record for correctness,</p>
+<p>When you have got your  record set up, you should validate that all is using the auth verifier here.</p>
+<p><a href=\"mailto:check-auth@verifier.port25.com\" onclick=\"return top.js.OpenExtLink(window,event,this)\">check-auth@verifier.<span name=\"st\" id=\"st\" class=\"st\">port25<&#47;span>.com<&#47;a></p>
+<p>You should try to subscribe a dummy user, with the email address supplied above.</p>
+<p>When you get the mail back, if it says you have passed the senderid check then you can move on.</p>
+<p>e.g. successful senderid check looks like this.</p>
+<p>==============================<wbr><&#47;wbr>============================<br />
+Summary of Results<br />
+==============================<wbr><&#47;wbr>============================<br />
+SPF check:          pass<br />
+DomainKeys check:   neutral<br />
+DKIM check:         neutral<br />
+Sender-ID check:    pass</p>
+<p>You should now go to dnsreport.com, and check out the domain you are sending from.  There should ideally be no red on this report.</p>
+<p>When you pass, and not before you should send a mail to <a href=\"mailto:senderid@microsoft.com\">senderid@microsoft.com<&#47;a>, with the domain you are mailing from in the body of the mail.  A couple of days later you should get a mail back to say that you have been added to the senderid programme.  (I had to send this mail from a hotmail account to get it not to bounce!!)</p>
+<p>You should now be able to send registrations and other mail to hotmail,msn and livemail addresses.</p>
+<p>However, this does not always work, which brings me on to.</p>
+<p>Problem 2</p>
+<p>By default Joomla used the PHP mail function to send emails.  This is configured in Site->global configuration->mail tab.</p>
+<p>For some reason hotmail does not seem to like the headers produced by the default config.</p>
+<p>To get things going configure and use an SMTP server.  (In most cases localhost)</p>
+<p>These two tips have got my mail through from three problem domains.</p>
+<p>I hope they work for you too.</p>
