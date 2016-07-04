@@ -9,7 +9,7 @@
 title: Jeffa's Abend 
 email: wuftymerguftyguff@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-	The so called life of Jeff Arthur YMMV
+     The so called life of Jeff Arthur YMMV
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://yourdomain.com" # the base hostname & protocol for your site
 twitter_username: wuftmergufty
