@@ -20,9 +20,9 @@ categories:
 tags: []
 comments: []
 ---
-<div class="test-default-content">Taken from SAP NOTE:&Acirc;&nbsp;1648302<&#47;div></p>
-<div class="test-default-content"><&#47;div></p>
-<div class="test-default-content"><strong>Solution<&#47;strong><br />
+<div class="test-default-content">Taken from SAP NOTE:Â 1648302</div>
+<div class="test-default-content"></div>
+<div class="test-default-content"><strong>Solution</strong><br />
 The following steps to be done manually as POWL entries in the POWL tables can't be updated once they are created.</p>
 <p>To update the customized POWL, first we need to select and delete the inconsistent entries then add them again as new entries.</p>
 <p>This has to be done in the transaction POWL_TYPER:</p>
@@ -30,21 +30,21 @@ The following steps to be done manually as POWL entries in the POWL tables can't
 <p>1. Select and delete entries with the application SOLMAN_NOTIF_MGMT.</p>
 <p>2. Click on New Entries button and create the following entries.</p>
 <ol>
-<ol>a) Type: DSWP_NA_POWLTYP_EXTERNAL Application: SOLMAN_NOTIF_MGMT<&#47;ol><br />
-<&#47;ol></p>
+<ol>a) Type: DSWP_NA_POWLTYP_EXTERNAL Application: SOLMAN_NOTIF_MGMT</ol>
+</ol>
 <ol>
-<ol>b) Type: DSWP_NA_POWTYP_MANAGEDSYSBPS Application: SOLMAN_NOTIF_MGMT<&#47;ol><br />
-<&#47;ol></p>
+<ol>b) Type: DSWP_NA_POWTYP_MANAGEDSYSBPS Application: SOLMAN_NOTIF_MGMT</ol>
+</ol>
 <ol>
-<ol>c) Type: DSWP_NA_POWLTYP_MANAGEDSYSUSRS Application: SOLMAN_NOTIF_MGMT<&#47;ol><br />
-<&#47;ol></p>
+<ol>c) Type: DSWP_NA_POWLTYP_MANAGEDSYSUSRS Application: SOLMAN_NOTIF_MGMT</ol>
+</ol>
 <ol>
-<ol>d) Type: DSWP_NA_POWLTYP_SOLMANSYSBPS Application: SOLMAN_NOTIF_MGMT<&#47;ol><br />
-<&#47;ol></p>
+<ol>d) Type: DSWP_NA_POWLTYP_SOLMANSYSBPS Application: SOLMAN_NOTIF_MGMT</ol>
+</ol>
 <ol>
-<ol>e) Type:DSWP_NA_POWLTYP_SOLMANSYSUSERS Application: SOLMAN_NOTIF_MGMT<&#47;ol><br />
-<&#47;ol><br />
-Ensure there are no duplicates exist.</p>
-<p>In order to reflect the changes on the screen you will have to&Acirc;&nbsp;&Acirc;&nbsp;clear the POWL cache by running a report called POWL_D01 with APPID: SOLMAN_NOTIF_MGMT</p>
+<ol>e) Type:DSWP_NA_POWLTYP_SOLMANSYSUSERS Application: SOLMAN_NOTIF_MGMT</ol>
+</ol>
+<p>Ensure there are no duplicates exist.</p>
+<p>In order to reflect the changes on the screen you will have toÂ Â clear the POWL cache by running a report called POWL_D01 with APPID: SOLMAN_NOTIF_MGMT</p>
 <p>In case if role assigenment is correct and still facing this issue then you will have to check for the authorization object CA_POWL has application ID SOLMAN_NOTIF_MGMT or check whether all the authorization values are maintained properly for the role that contain CA_POWL.</p>
-<p><&#47;div></p>
+</div>

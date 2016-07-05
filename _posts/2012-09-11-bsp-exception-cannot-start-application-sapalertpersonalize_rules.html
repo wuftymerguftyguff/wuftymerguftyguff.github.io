@@ -2,7 +2,7 @@
 layout: post
 status: publish
 published: true
-title: 'BSP exception: Cannot start application sap&#47;alertpersonalize_rules'
+title: 'BSP exception: Cannot start application sap/alertpersonalize_rules'
 author:
   display_name: jeffa
   login: jeffa
@@ -19,16 +19,16 @@ categories:
 tags: []
 comments: []
 ---
-<div class="test-default-content"><strong>Problem<&#47;strong><br />
+<div class="test-default-content"><strong>Problem</strong><br />
 When the BSP "Subscription to Alerts" (ALERTSUBSCRIPTION) or "Personalization" (ALERTPERSONALIZE_RULES) is called, the following error occurs:<br />
 Business Server Page (BSP) error<br />
 What happened?<br />
 Calling the BSP page was terminated due to an error.<br />
 SAP Note:<br />
 The following error text was processed in the system:<br />
-BSP exception: Application sap&#47;alertpersonalize_rules cannot be started. Create an application node using transaction SICF.</p>
-<p><strong>Issue<&#47;strong><br />
+BSP exception: Application sap/alertpersonalize_rules cannot be started. Create an application node using transaction SICF.</p>
+<p><strong>Issue</strong><br />
 BSPs whose name is longer than 15 characters can not be processed.</p>
-<p><strong>Solution<&#47;strong><br />
+<p><strong>Solution</strong><br />
 Implement Note 1038797 in your system, and run the report BSP_UNLOCK_LONG_APP mentioned in that note for the BSPs ALERTPERSONALIZE_RULES and ALERTSUBSCRIPTION.</p>
-<p><&#47;div></p>
+</div>

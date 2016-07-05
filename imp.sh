@@ -7,7 +7,7 @@ ruby -rubygems -e 'require "jekyll-import";
       "socket"   => "",
       "table_prefix"   => "wp_",
       "site_prefix"    => "",
-      "clean_entities" => true,
+      "clean_entities" => false,
       "comments"       => true,
       "categories"     => true,
       "tags"           => true,
