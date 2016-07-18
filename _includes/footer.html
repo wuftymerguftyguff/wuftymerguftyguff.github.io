@@ -1,4 +1,7 @@
 <footer class="site-footer">
+{% if jekyll.environment == 'production' %}
+{% include disqus.html %}
+{% endif %}
 
   <div class="wrapper">
 
