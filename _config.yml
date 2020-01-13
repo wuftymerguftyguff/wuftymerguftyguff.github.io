@@ -27,3 +27,7 @@ theme: minima
 
 disqus:
     shortname: jeffarthurcouk 
+
+header_pages:
+  - sqrlapp.md
+  - about.md
