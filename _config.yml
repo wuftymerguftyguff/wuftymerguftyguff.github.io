@@ -23,4 +23,7 @@ markdown: kramdown
 # Google services
 google_analytics: UA-313584-16
 
-theme: jekyll-theme-cayman
+theme: minima 
+
+disqus:
+    shortname: jeffarthurcouk 
