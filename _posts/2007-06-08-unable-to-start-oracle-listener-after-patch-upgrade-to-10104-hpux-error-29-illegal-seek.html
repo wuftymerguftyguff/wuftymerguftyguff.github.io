@@ -25,12 +25,12 @@ comments: []
 <p>The patch install went fine, and Oracle came up without any problems, but the listener just would not start with the following errors.</p>
 <p>lsnrctl start</p>
 <p>LSNRCTL for HPUX: Version 10.1.0.4.0 - Production on 08-JUN-2007 15:49:19</p>
-<p>Copyright (c) 1991, 2004, Oracle.Ã‚Â  All rights reserved.</p>
+<p>Copyright (c) 1991, 2004, Oracle.Ã‚  All rights reserved.</p>
 <p>Starting /oracle/SP1/101_64/bin/tnslsnr: please wait...</p>
 <p>TNS-12537: TNS:connection closed<br />
-Ã‚Â TNS-12560: TNS:protocol adapter error<br />
-Ã‚Â  TNS-00507: Connection closed<br />
-Ã‚Â Ã‚Â  HPUX Error: 29: Illegal seek</p>
+Ã‚ TNS-12560: TNS:protocol adapter error<br />
+Ã‚  TNS-00507: Connection closed<br />
+Ã‚ Ã‚  HPUX Error: 29: Illegal seek</p>
 <p>I found a couple of potential fixes.</p>
 <p>Verified the /etc/hosts contains the localhost entry:</p>
 <p><font size=\"2\" face=\"r_ansi\">127.0.0.1 localhost.localdomain localhost<br />
@@ -39,7 +39,7 @@ comments: []
 <p><font size=\"2\" face=\"r_ansi\">What did work for me is below:</font></p>
 <p><font size=\"2\" face=\"r_ansi\"></p>
 <h2 class=\"awiz\"><a name=\"CAUSE\"></a>Cause</h2>
-<p>TNS ListenerÃ‚Â fails while attempting to initiate subscription to ONS node down event.</p>
+<p>TNS ListenerÃ‚ fails while attempting to initiate subscription to ONS node down event.</p>
 <p>Level 16 TNS Listener trace shows the last action:</p>
 <p>...<br />
 [01-JUL-2005 10:16:59:727] nsglonsinit: Initiated subscription for node down event<br />
@@ -50,10 +50,10 @@ START THE SECOND LISTENER</p>
 <p>To implement the solution, please execute the following steps:</p>
 <p>1. Explicitly disable the 10g TNS Listener\'s subscrition to ONS by editing the listener.ora file and add the parameter below:</p>
 <p>SUBSCRIBE_FOR_NODE_DOWN_EVENT_&lt;listener_name&gt;=OFF</p>
-<p>Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â  where &lt;listener_name&gt; would be replaced with the actual listener name configured in the listener.ora file.</p>
+<p>Ã‚ Ã‚ Ã‚ Ã‚ Ã‚ Ã‚  where &lt;listener_name&gt; would be replaced with the actual listener name configured in the listener.ora file.</p>
 <p>For example, if the listener name is LISTENER (default), the parameter would be:</p>
 <p>SUBSCRIBE_FOR_NODE_DOWN_EVENT_LISTENER=OFF</p>
-<p>Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â Ã‚Â  - Save the listener.ora file</p>
+<p>Ã‚ Ã‚ Ã‚ Ã‚ Ã‚ Ã‚  - Save the listener.ora file</p>
 <p>2. Start the TNS Listener from a new LSNRCTL prompt:</p>
 <p>lsnrctl &lt;return&gt;</p>
 <p>LSNRCTL&gt; start</p>

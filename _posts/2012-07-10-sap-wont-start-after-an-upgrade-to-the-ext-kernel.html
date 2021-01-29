@@ -29,6 +29,6 @@ The following files must be in the path described by<br />
 the environment variable "LIBPATH":<br />
 libicuuc40.a, libicudata40.a, libicui18n40.a [nlsui0.c 1544] pid = 60227612<br />
 LIBPATH is currently set to /usr/lib:/lib:/usr/sap/POO/SYS/exe/run:/usr/sap/POO/SYS/exe/uc/rs6000_64 [nlsui0.c 1547] pid = 60227612</p>
-<p>The permissions were wrong on the Version 4 unicode libraries, this was due to the umak on root. Â The old version of the kernel used Vn3 of the libraries so the Vn4 files did not exist and so got the default root umask rather than the correct permissions for sidadm:sapsys.</p>
+<p>The permissions were wrong on the Version 4 unicode libraries, this was due to the umak on root.  The old version of the kernel used Vn3 of the libraries so the Vn4 files did not exist and so got the default root umask rather than the correct permissions for sidadm:sapsys.</p>
 <p>Chmodded the files as root to fix.</p>
 </div>

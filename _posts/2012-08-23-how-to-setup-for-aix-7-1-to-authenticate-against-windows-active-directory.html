@@ -23,13 +23,13 @@ comments: []
 <h1>Setup for AIX 7.1 to authenticate against active directory.</h1>
 <h2>Make sure correct file sets are installed:</h2>
 <p>tstsvaap004:/&gt;lslpp -l | grep krb</p>
-<p>krb5.client.rteÂ Â Â Â Â Â Â Â Â Â Â  1.5.0.2Â  COMMITTEDÂ  Network Authentication Service</p>
-<p>krb5.client.samplesÂ Â Â Â Â Â Â  1.5.0.2 Â COMMITTEDÂ  Network Authentication Service</p>
-<p>krb5.doc.en_US.htmlÂ Â Â Â Â Â Â  1.5.0.2Â  COMMITTEDÂ  Network Auth Service HTML</p>
-<p>krb5.doc.en_US.pdfÂ Â Â Â Â Â Â Â  1.5.0.2Â  COMMITTEDÂ  Network Auth Service PDF</p>
-<p>krb5.licÂ Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  1.5.0.2Â  COMMITTEDÂ  Network Authentication Service</p>
-<p>krb5.msg.en_US.client.rteÂ  1.5.0.2Â  COMMITTEDÂ  Network Auth Service Client</p>
-<p>krb5.client.rteÂ Â Â Â Â Â Â Â Â Â Â  1.5.0.2Â  COMMITTEDÂ  Network Authentication Service</p>
+<p>krb5.client.rte            1.5.0.2  COMMITTED  Network Authentication Service</p>
+<p>krb5.client.samples        1.5.0.2  COMMITTED  Network Authentication Service</p>
+<p>krb5.doc.en_US.html        1.5.0.2  COMMITTED  Network Auth Service HTML</p>
+<p>krb5.doc.en_US.pdf         1.5.0.2  COMMITTED  Network Auth Service PDF</p>
+<p>krb5.lic                   1.5.0.2  COMMITTED  Network Authentication Service</p>
+<p>krb5.msg.en_US.client.rte  1.5.0.2  COMMITTED  Network Auth Service Client</p>
+<p>krb5.client.rte            1.5.0.2  COMMITTED  Network Authentication Service</p>
 <p>&nbsp;</p>
 <h2>Generate default kerberos configuration.</h2>
 <p>&nbsp;</p>
@@ -69,7 +69,7 @@ comments: []
 <p>&nbsp;</p>
 <h2>Adapt the default /etc/methods.cfg</h2>
 <p>&nbsp;</p>
-<p>Update the contents of /etc/methods.cfgÂ  to include:</p>
+<p>Update the contents of /etc/methods.cfg  to include:</p>
 <p>KRB5:</p>
 <p>program = /usr/lib/security/KRB5</p>
 <p>program_64 = /usr/lib/security/KRB5_64</p>
