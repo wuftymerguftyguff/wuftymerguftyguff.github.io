@@ -1,9 +1,10 @@
 ---
 layout: page
-title: SQRL iOS App 
+title: SQRL iOS App
 permalink: /sqrlapp/
+comments: true
 ---
 
-This is the Page of The SQRL for iOS APP 
+This is the Page of The SQRL for iOS APP
 
 Latest installer Package for [SQRL for MAC](/sqrl.pkg "SQRL for MAC")
