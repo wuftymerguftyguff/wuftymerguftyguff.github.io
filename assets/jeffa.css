@@ -1,3 +1,16 @@
 .comments {
     padding: 10%;
 }
+#jeff-support {
+ display: flex;
+ margin:auto;
+ padding: 20px;
+}
+#jeff-patreon {
+ margin:auto;
+ flex: 1;
+}
+#jeff-kofi {
+ margin-auto;
+ flex: 1;
+}
