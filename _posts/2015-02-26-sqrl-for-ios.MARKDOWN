@@ -18,6 +18,9 @@ tags: []
 comments: true
 ---
 <p>I am working on an iOS client for SQRL</p>
+
+You can join the [SQRL for iOS beta programme](https://grc.sc/ios "SQRL for iOS beta programme") by signing up to the mailchimp list.
+
 <p>SQRL is a revolution in waiting being gifted to the world by Steve Gibson of grc.com and Security Now fame.  Details of SQRL can be found here.</p>
 <p><a href="https://www.grc.com/sqrl/sqrl.htm">https://www.grc.com/sqrl/sqrl.htm</a></p>
 <p>The headline here is that with SQRL you can have a secure site specific identity without sharing any secrets (passwords) with the remote site.    This means that even if a remote site is hacked your site specific identity cannot be used to impersonate you.</p>
