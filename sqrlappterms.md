@@ -1,6 +1,6 @@
 ---
 layout: page
-title: SQRL Login Client Privacy Policy
+title: SQRL Login Client Terms of Use 
 permalink: /sqrlapp/termsofuse
 ---
 ## Terms of Use 
