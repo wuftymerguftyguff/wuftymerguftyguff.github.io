@@ -1,7 +1,7 @@
 ---
 layout: page
 title: SQRL Login Client Privacy Policy
-permalink: /sqrlapp/privacyPolicy
+permalink: /sqrlapp/termsofuse
 ---
 ## Terms of Use 
 
